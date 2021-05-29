@@ -61,5 +61,22 @@
         android:text="@string/login_signup_hint"
         android:layout_marginTop="@dimen/loginViewsMargin"
         android:gravity="end" />
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/TextForgotPass"
+        style="@style/parent"
+        android:textAlignment="textEnd"
+        android:textStyle="bold"
+        android:textColor="@color/primaryTextColor"
+        android:text="@string/forgot_password_hint"
+        android:layout_marginTop="@dimen/loginViewsMargin"
+        android:gravity="end" />
+    <ProgressBar
+        android:id="@+id/loginProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_gravity="center"/>
+
+
 
 </LinearLayout>

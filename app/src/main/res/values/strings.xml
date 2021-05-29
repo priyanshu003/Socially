@@ -12,4 +12,5 @@
     <string name="settings">Setting</string>
     <string name="search">Search</string>
     <string name="home">Home</string>
+    <string name="forgot_password_hint">Forgot Password ?</string>
 </resources>
