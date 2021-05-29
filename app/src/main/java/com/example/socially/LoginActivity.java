@@ -42,7 +42,7 @@ public class LoginActivity extends AppCompatActivity {
                     editTextPassword.setError("Password is empty");
                     loginProgressBar.setVisibility(View.GONE);
                 }
-                if(str_choice.contains("@")){
+                else{
                     DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users");
                     Query checkusername = reference.orderByChild("Mail ID").equalTo(str_choice);
                     checkusername.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -94,65 +94,11 @@ public class LoginActivity extends AppCompatActivity {
 
                         @Override
                         public void onCancelled(@NonNull DatabaseError error) {
-
                         }
                     });
 
                 }
-                else{
-                    DatabaseReference theta = FirebaseDatabase.getInstance().getReference("Users");
-                    Query checkuser = theta.orderByChild("Username").equalTo(str_choice);
-                    checkuser.addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            for(DataSnapshot beta : snapshot.getChildren()){
-                                String user_input = beta.getKey();
-                                if(snapshot.exists()){
-                                    String psswdfroDB = snapshot.child(user_input).child("Password").getValue(String.class);
-                                    if(psswdfroDB.equals(str_passwork)){
-                                        String namefroDB = snapshot.child(user_input).child("Name").getValue(String.class);
-                                        String usernamefroDB = snapshot.child(user_input).child("Username").getValue(String.class);
-                                        String emailfroDB = snapshot.child(user_input).child("Mail ID").getValue(String.class);
-                                        authx.signInWithEmailAndPassword(emailfroDB,str_passwork).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                                            @Override
-                                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                                if(task.isSuccessful()){
-                                                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-
-                                                    intent.putExtra("Name",namefroDB);
-                                                    intent.putExtra("Username",usernamefroDB);
-                                                    intent.putExtra("Email ID",emailfroDB);
-                                                    intent.putExtra("Password",psswdfroDB);
-
-                                                    startActivity(intent);
-                                                }
-                                                else{
-                                                    Toast.makeText(LoginActivity.this, "We have encountered an error. Please try again", Toast.LENGTH_SHORT).show();
-                                                }
-                                            }
-                                        });
-                                        loginProgressBar.setVisibility(View.GONE);
-
-
-                                    }
-                                    else{
-                                        editTextPassword.setError("Incorrect Password");
-                                        loginProgressBar.setVisibility(View.GONE);
-                                        editTextPassword.requestFocus();
-                                    }
-                                }
-                                else{
-                                    editTextEmail.setError("Incorrect Username");
-                                    loginProgressBar.setVisibility(View.GONE);
-                                    editTextEmail.requestFocus();
-                                }
-                            }
-                        }
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
-                        }
-                    });
-                }
+                
 
             }
         });
