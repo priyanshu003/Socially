@@ -12,6 +12,8 @@ import android.widget.Button;
 public class LoginActivity extends AppCompatActivity {
     private EditText editTextEmail, editTextPassword, textSignUP;
     private Button cirLoginButton;
+    private ProgressBar loginProgressBar;
+    private TextView textSignUP, TextForgotPass;
     FirebaseAuth authx;
 
     @Override
@@ -22,18 +24,23 @@ public class LoginActivity extends AppCompatActivity {
         editTextPassword=findViewById(R.id.editTextPassword);
         cirLoginButton = findViewById(R.id.cirLoginButton);
         textSignUP = findViewById(R.id.textSignUP);
+        TextForgotPass = findViewById(R.id.TextForgotPass);
+        loginProgressBar=findViewById(R.id.loginProgressBar);
         authx = FirebaseAuth.getInstance();
         
         cirLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                loginProgressBar.setVisibility(View.VISIBLE);
                 String str_choice = editTextEmail.getText().toString();
                 String str_passwork = editTextPassword.getText().toString();
                 if(str_choice.length()==0){
                     editTextEmail.setError("Mail must not be empty");
+                    loginProgressBar.setVisibility(View.GONE);
                 }
                 if(str_passwork.length()==0){
                     editTextPassword.setError("Password is empty");
+                    loginProgressBar.setVisibility(View.GONE);
                 }
                 if(str_choice.contains("@")){
                     DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users");
@@ -67,16 +74,19 @@ public class LoginActivity extends AppCompatActivity {
                                                 }
                                             }
                                         });
+                                        loginProgressBar.setVisibility(View.GONE);
 
 
                                     }
                                     else{
                                         editTextPassword.setError("Incorrect Password");
+                                        loginProgressBar.setVisibility(View.GONE);
                                         editTextPassword.requestFocus();
                                     }
                                 }
                                 else{
                                     editTextEmail.setError("Incorrect Email ID");
+                                    loginProgressBar.setVisibility(View.GONE);
                                     editTextEmail.requestFocus();
                                 }
                             }
@@ -121,16 +131,19 @@ public class LoginActivity extends AppCompatActivity {
                                                 }
                                             }
                                         });
+                                        loginProgressBar.setVisibility(View.GONE);
 
 
                                     }
                                     else{
                                         editTextPassword.setError("Incorrect Password");
+                                        loginProgressBar.setVisibility(View.GONE);
                                         editTextPassword.requestFocus();
                                     }
                                 }
                                 else{
                                     editTextEmail.setError("Incorrect Username");
+                                    loginProgressBar.setVisibility(View.GONE);
                                     editTextEmail.requestFocus();
                                 }
                             }
@@ -148,6 +161,15 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(LoginActivity.this,RegisterActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+        
+        TextForgotPass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this,ForgetPassActivity.class);
                 startActivity(intent);
                 finish();
             }
