@@ -1,8 +1,27 @@
 package com.example.socially;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.core.Context;
+
+import java.util.HashMap;
 
 public class RegisterActivity extends AppCompatActivity {
     private EditText editTextName, editTextEmail, editTextPassword;
@@ -23,7 +42,7 @@ public class RegisterActivity extends AppCompatActivity {
         TextSignIP = findViewById(R.id.TextSignIP);
         auth=FirebaseAuth.getInstance();
         RegisterProgressBar.setVisibility(View.GONE);
-        
+
         cirLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,9 +67,9 @@ public class RegisterActivity extends AppCompatActivity {
                     RegisterProgressBar.setVisibility(View.GONE);
                     editTextPassword.requestFocus();
                 }
-                
-                
-                
+
+
+
                 if(strpassword.matches(".*\\d.*") && strpassword.length()>8){
                     auth.createUserWithEmailAndPassword(stremail, strpassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override

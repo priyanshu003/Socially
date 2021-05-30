@@ -11,15 +11,16 @@
         android:theme="@style/Theme.Socially">
         <activity android:name=".ForgetPassActivity"
             android:theme="@style/AppTheme">
+
+
+        </activity>
+        <activity android:name=".RegisterActivity"
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-        </activity>
-        <activity android:name=".RegisterActivity"
-            android:theme="@style/AppTheme">
 
         </activity>
         <activity
