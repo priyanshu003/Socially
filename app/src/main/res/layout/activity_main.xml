@@ -22,6 +22,7 @@
             android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
             android:layout_height="674dp"
+            app:navGraph="@navigation/main_graph"
             app:defaultNavHost="true" />
 
     </FrameLayout>
@@ -34,7 +35,8 @@
         app:fabCradleMargin="10dp"
         app:fabCradleRoundedCornerRadius="20dp"
         app:fabCradleVerticalOffset="0dp"
-        android:foregroundTint="@android:color/black">
+        android:foregroundTint="@color/primaryTextColor"
+        android:backgroundTint="@color/colorPrimaryVariant">
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottomNavigationView"

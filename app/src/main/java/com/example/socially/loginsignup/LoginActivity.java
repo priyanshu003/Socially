@@ -1,8 +1,7 @@
-package com.example.socially;
+package com.example.socially.loginsignup;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,6 +12,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.socially.MainActivity;
+import com.example.socially.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -120,7 +121,7 @@ public class LoginActivity extends AppCompatActivity {
         TextSignUP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this,RegisterActivity.class);
+                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -129,7 +130,7 @@ public class LoginActivity extends AppCompatActivity {
         TextForgotPass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this,ForgetPassActivity.class);
+                Intent intent = new Intent(LoginActivity.this, ForgetPassActivity.class);
                 startActivity(intent);
                 finish();
             }

@@ -13,4 +13,18 @@
     <string name="search">Search</string>
     <string name="home">Home</string>
     <string name="forgot_password_hint">Forgot Password ?</string>
+    <string name="follow">Follow</string>
+    <string name="posts">Posts</string>
+    <string name="example_post_username">dummy</string>
+    <string name="example_post_text">Today is a good day to make a post in this social network, this is actually just an example text I write to have some lines of text</string>
+    <string name="edit_your_profile">Edit Your Profile</string>
+    <string name="username">UserName</string>
+    <string name="description">Description</string>
+    <string name="update_profile">Update Profile</string>
+    <string name="enter_comment">Enter comment</string>
+    <string name="search_hint">Search</string>
+    <string name="unfollow">Un Follow</string>
+    <string name="post">Text</string>
+    <string name="enter_post_text">Enter post text</string>
+    <string name="choose_image">Choose image</string>
 </resources>

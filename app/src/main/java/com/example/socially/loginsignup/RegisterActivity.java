@@ -1,4 +1,4 @@
-package com.example.socially;
+package com.example.socially.loginsignup;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,14 +12,14 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.socially.MainActivity;
+import com.example.socially.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.core.Context;
 
 import java.util.HashMap;
 
@@ -82,7 +82,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 hashMap.put("Mail ID",stremail);
                                 hashMap.put("Password",strpassword);
                                 FirebaseDatabase.getInstance().getReference("Users").child(fuid).setValue(hashMap);
-                                Intent intent = new Intent(RegisterActivity.this,MainActivity.class);
+                                Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
                                 startActivity(intent);
                                 finish();
                             }
