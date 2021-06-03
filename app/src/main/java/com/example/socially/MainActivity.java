@@ -35,10 +35,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         FavNewPost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getSupportFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.flFragmentContainer, new FragmentCreatepost())
-                        .commit();
+                startActivity(new Intent(MainActivity.this, PostActivity.class));
             }
         });
 
@@ -73,15 +70,15 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 break;
 
             case R.id.profile:
+                SharedPreferences.Editor editor = getSharedPreferences("PREFS", MODE_PRIVATE).edit();
+                editor.putString("profileid",FirebaseAuth.getInstance().getCurrentUser().getUid());
+                editor.apply();
                 fragment = new FragmentProfile();
                 break;
 
             case R.id.setting:
                 fragment = new FragmentSetting();
                 break;
-//            case R.id.globalActionToCreatePostFragment:
-//                fragment = new FragmentCreatepost();
-//                break;
 
         }
 
