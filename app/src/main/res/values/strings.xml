@@ -25,6 +25,4 @@
     <string name="search_hint">Search</string>
     <string name="unfollow">Un Follow</string>
     <string name="post">Text</string>
-    <string name="enter_post_text">Enter post text</string>
-    <string name="choose_image">Choose image</string>
 </resources>
