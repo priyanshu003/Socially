@@ -53,7 +53,7 @@ public class PostActivity extends AppCompatActivity {
         ic_cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(PostActivity.this, welcome.class));
+                startActivity(new Intent(PostActivity.this, MainActivity.class));
                 finish();
             }
         });
@@ -111,7 +111,7 @@ public class PostActivity extends AppCompatActivity {
                         reference.child(postid).setValue(hashMap);
                         progressDialog.dismiss();
 
-                        startActivity(new Intent(PostActivity.this, welcome.class));
+                        startActivity(new Intent(PostActivity.this, MainActivity.class));
                         finish();
                     } else{
                         Toast.makeText(PostActivity.this, "Failed", Toast.LENGTH_SHORT).show();
@@ -139,7 +139,7 @@ public class PostActivity extends AppCompatActivity {
         }
         else{
             Toast.makeText(this, "Something went wrong", Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(PostActivity.this,welcome.class));
+            startActivity(new Intent(PostActivity.this, MainActivity.class));
             finish();
         }
     }
